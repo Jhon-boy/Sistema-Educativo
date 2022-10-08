@@ -1,0 +1,109 @@
+.container_2{
+    margin-top: -30px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(24, 20, 86);
+}
+.line{
+    height: 20px;
+}
+.info-est{
+    margin-left: 200px;
+    margin-top: 30px;
+    background-color: wheat;
+    width: 50vw;
+    height: 40vh;
+
+}
+.Datos{
+    margin-left: 25px;
+    font-size: 28px;
+    color: black;
+    
+}
+.titulo_2{
+    margin-left: 33px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: rgb(17, 17, 75);
+ 
+}
+.respuesta{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-left: 28px;
+    text-decoration: none;
+}
+.respuesta:hover{
+    color: black;
+}
+.tareas{
+    margin-top: 20px;
+    color: white;
+}
+.aviso{
+    margin-left: 30%;
+   text-align: center;
+    width: 200px;
+    height: 38px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold; 
+    background-color: wheat;
+    font-size: 22px;
+    text-shadow: -1px 0 black, 0 1px black,
+	  1px 0 black, 0 -1px black;
+
+}
+.bloque{
+    display: flex;
+    margin-left: 180px;
+    margin-top: 3rem;
+    text-align: center;
+}
+.agregar{
+    width: 11rem;
+    height: 13rem;
+    border-bottom: 2px solid wheat;
+    margin-right: 18px;
+}
+
+/**********File Inputs**********/
+.container-input {
+    justify-content: center;
+    text-align: center;
+    padding: 1px 0;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.inputfile {
+    width: 3px;
+    height: 3px;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    font-weight: 8px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+
+}
+
+ 

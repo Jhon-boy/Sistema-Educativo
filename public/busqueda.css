@@ -1,0 +1,100 @@
+body{
+    background-color: wheat;
+}
+.nav{
+    margin-bottom: 25px;
+}
+.nav{
+    display: flexbox;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.opcion{
+    margin-top: -6%;
+    margin-left: 75%;
+}
+.icon-3{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+
+}
+
+.info{
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    margin-top: -147px;
+    margin-left: -144px;
+    border: 1px solid black;
+}
+.carrera{
+    margin: 5% 5% 5% 5%;
+    height: 15%;
+    border: 2px solid gray;
+    border-radius: 5px;
+    height: 100px;
+}
+.busqueda{
+    margin-left: 10%;
+    display: flex;
+    width: 50px;
+    height: 40px;
+}
+.search{
+    display: flex;
+    background-color:rgb(24, 20, 86) ;
+    color: white;
+    width: 350px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 15px;
+    align-items: center;
+
+}
+.me-2{
+    height: 33px;
+    width: 300px;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-right: none;
+    border-radius: 15px;
+    border-right: none;
+}
+.bi-search{
+    margin-left: 15px;
+}
+.btn{
+    background-color:rgb(24, 20, 86) ;
+    color: white;
+}
+.container_1{
+    background-color:rgb(24, 20, 86) ;
+    width: 1000px;
+    height: 1000px;
+
+}
+.estudiante{
+    background-color: wheat;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    margin-top: -147px;
+    margin-left: -144px;
+    border: 1px solid black;
+}
+.title-{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.des{
+    color: rgb(24, 20, 86);
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+
+}

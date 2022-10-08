@@ -1,0 +1,52 @@
+body {
+  background-color: rgb(24, 20, 86);
+}
+
+.presentacion {
+  justify-items: center;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  display: flex;
+}
+.presentacion .inicio {
+  background-color: white;
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  margin-top: -147px;
+  margin-left: -144px;
+  border: 3px solid black;
+}
+.presentacion .inicio h2{
+    color:  rgb(18, 15, 68);
+    font-weight: bold;
+ 
+}
+.icons{
+    display: flex;
+
+}
+.icons span img{
+    margin-left: 40%;
+    margin-right: 160px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.buttons .btn-1{
+    text-align: center;
+    background-color: rgb(18, 15, 68);
+    width: 120px;
+   margin-right: 20%;
+}
+.buttons .btn-2{
+    text-align: center;
+    background-color: rgb(18, 15, 68);
+    width: 120px;
+    margin-left: 9%;
+}
+ 
