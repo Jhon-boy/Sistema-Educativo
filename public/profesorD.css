@@ -1,0 +1,52 @@
+.descargasD{
+    margin: 50px 300px 0 300px;
+    color: white;
+    border: 1px solid white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.tituloD{
+    margin-left: 35%;
+    margin-top: 25px;
+    font-size: 40px;
+}
+span{
+    background-color: rgb(52, 52, 250);
+    padding-left: 11px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    color: white;
+    border: 1px solid rgb(52, 52, 250) ;
+    border-radius: 26px;
+}
+.documentos1{
+    margin-left: 15px;
+    margin-top: 5px;
+}
+.listas{
+    display: flex;
+}
+.Docs{
+    border: none;
+    border-radius: 2px;
+    padding: 0 15px 2 7px;
+    background-color: rgb(18, 15, 68);
+    color: rgb(65, 138, 65);
+
+}
+
+.tips{
+    color: white;
+    margin-top: 15px;
+    text-decoration: none;
+    margin-left: 45px;
+}
+.tips2{
+    color: white;
+    text-decoration: none;
+    
+    font-size: 20px
+
+}
+.tituloP{
+    font-size: 30px;
+}
