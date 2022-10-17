@@ -54,188 +54,34 @@ $usuario = $_SESSION['username'];
     <div class="container">
         <div class="presentacion">
             <div class="row row-cols-1 row-cols-md-3 g-4">
+                <?php
+$conexion= mysqli_connect("localhost", "root", "", "its");
+$sql ="SELECT * from carrera";
+$resultado = mysqli_query($conexion, $sql);
+
+ while($mostrar =mysqli_fetch_array($resultado)){
+  ?> 
             <form class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">
-              <!-- PRIMERA CARRERA  GOT = GESTION DE OPERACIONES TURISTICA -->
                 <div class="col">
                   <div class="card h-100">
-                    <a href="#"><img class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/p0krstn/Gestion.png" alt="Gestion" border="0" /></a>
+                    <a href="#">  <?php  echo '<img  style="height: 100px;   width:100px;" src="http://localhost/Oficial/modelo/'.$mostrar['foto'].'" alt="" border="0"> ' ?>  </a>
                     <div class="card-body"> 
                         <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >GOT</option>
+                          <option  > <?php  echo $mostrar['codigo'] ?></option>
                         </select>
                         <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en  Gestíon de Operaciones Turísticas</option>
+                          <option  > <?php  echo $mostrar['nombre'] ?></option>
                         </select>
-                        <button href=""class="btn-enviar title" type="submit" id="btnbuscar" >Tecnología Superior en <br> Gestíon de Operaciones Turísticas</button>
+                        <button href=""class="btn-enviar title" type="submit" id="btnbuscar" ><?php  echo $mostrar['nombre'] ?></button>
                         
                     </div>
                   </div>
                 </div>
                 </form>
-                <!-- SEGUNDA CARRERA  DDS = Desarrollo de Software-->
-                <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">
-                    <div class="col">
-                      <div class="card h-100">
-                        <a href="#"><img  class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/cNN3Kwd/Programacion.png" alt="Programacion" border="0" /></a>
-                        <div class="card-body">
-                        <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >DDS</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en  Desarrollo de Software</option>
-                        </select>
-                            <button href=""class="btn-enviar title"  type="submit" id="btnbuscar">Tecnología Superior en <br> Desarrollo de Software</button>
-                        </div>
-                      </div>
-                    </div>
-              </form>
-                
-              <!--  TERCERA CARRERA ET: ESTIMULACION TEMPRANA -->
-              <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img  class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/GCnnTqW/Estimulacion.png" alt="Estimulacion" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >ET</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en   Estimulación Temprana</option>
-                        </select>
-                          <button  class="btn-enviar title"  type="submit" id="btnbuscar">Tecnología Superior en <br> Estimulación Temprana</button>
-                          <h6  id="codigo" name="codigo"  style="display: none;">ET</h6>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
+<?php
+ }
+ ?>    
 
-                      <!--  CUARTA CARRERA CONST: CONSTRUCCION -->
-                      <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/BVrQvWY/Construccion.png" alt="Construccion" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >CONST</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en Construcción</option>
-                        </select>
-                          <button href=""class="btn-enviar title" type="submit" id="btnbuscar">Tecnología Superior en <br> Construcción</button>
-                          <h6  id="codigo" name="codigo"  style="display: none;">CONST</h6>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
-
-                      <!--  QUINTA CARRERA RF: REGENCIA EN FARMACIA -->
-
-                      <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/72FwyhK/Farmacia.png" alt="Farmacia" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >RF</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en  Regencia en Farmacia</option>
-                        </select>
-                          <button class="btn-enviar title"name="carrera" type="submit" id="btnbuscar" >Tecnología Superior en <br> Regencia en Farmacia</button>
-                          <h6  id="codigo" name="codigo"  style="display: none;">RF</h6>
-                      </div>
-                    </div>
-                  </div>
-              </form>
-
-               <!--  SEXTA CARRERA SAS: Servícios Asistenciales de Salud -->
-               <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/TYqHxCC/Salud.png" alt="Salud" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >SAS</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en  Servícios Asistenciales de Salud</option>
-                        </select>
-                          <button class="btn-enviar title"  type="submit" id="btnbuscar">Tecnología Superior en <br> Servícios Asistenciales de Salud</button>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
-
-              <!--  SEPTIMA CARRERA RFI: Rehabilitación Física-->
-              <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/mFJ98z5/Rehabilitacion.png" alt="Rehabilitacion" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >RFI</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en  Rehabilitación Física</option>
-                        </select>
-                          <button class="btn-enviar title" type="submit" id="btnbuscar">Tecnología Superior en <br> Rehabilitación Física</button>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
-
-                <!--  OCTAVA CARRERA SCYOP: Seguridad Cuidadana y Orden Público-->
-                 <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">    
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img  class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/GV26LPn/Seguridad.png" alt="Seguridad" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >SCYOP</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en  Seguridad Cuidadana y Orden Público</option>
-                        </select>
-                          <button class="btn-enviar title" type="submit" id="btnbuscar" >Tecnología Superior en <br> Seguridad Cuidadana y Orden Público</button>
-                      </div>
-                    </div>
-                  </div>
-                 </form>
-                   <!--  NOVENA CARRERA APDLS: Seguridad Cuidadana y Orden Público-->
-                 <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST">  
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/kS9bCNS/medicina.png" alt="medicina" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >APDLS</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en Atención Primaria de la Salud</option>
-                        </select>
-                          <button class="btn-enviar title" type="submit" id="btnbuscar" >Tecnología Superior en <br> Atención Primaria de la Salud</button>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
-
-                 <!-- DECIMA CARRERA IYM: Informática y Multimedia-->
-                 <form  class="carrera" action="http://localhost/Oficial/modelo/busqueda.php" method ="POST"> 
-                  <div class="col">
-                    <div class="card h-100">
-                      <a href="#"><img class="card-img-top" alt="..." style="height: 100px;   width:100px;" src="https://i.ibb.co/QfdNR4Y/Informatica.png" alt="Informatica" border="0" /></a>
-                      <div class="card-body">
-                      <select name="codigo" id="codigo"  name="carrera"style="display: none;">
-                          <option  >IYM</option>
-                        </select>
-                        <select id="carrera" name="carrera"style="display: none;" >
-                          <option  >Tecnología Superior en   Informática y Multimedia</option>
-                        </select>
-                          <button class="btn-enviar title"type="submit" id="btnbuscar">Tecnología Superior en <br> Informática y Multimedia</button>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
 
               </div>
               <div class="line">
