@@ -85,7 +85,8 @@ input{
         <h3 class="h">Panel  de Administrador</h3>
     </div>
     <div class="carrerasC">
-    <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Carrera</button>
+    <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Carrera</button> 
+    <button type="button" class="btn btn-info"data-bs-toggle="modal" data-bs-target="#exampleModal1">Asignar/Actualizar Docentes</button>
         <h3 class="carre">
             Información de las Carreras Registrada
         </h3>
@@ -101,7 +102,9 @@ input{
       <th scope="col">Semestres</th>
       <th scope="col">Modalidad</th>
       <th scope="col">Perfil</th>
+      <th scope="col"> Docente </th>
       <th scope="col"> - </th>
+
     </tr>
     </center>
   </thead>
@@ -121,10 +124,11 @@ $resultado = mysqli_query($conexion, $sql);
          <td > <?php  echo $mostrar['semestres'] ?> </td>
          <td > <?php  echo $mostrar['modalidad'] ?> </td>
          <td > <?php  echo '<img  style="height: 40px;   width:40px;" src="http://localhost/Oficial/modelo/'.$mostrar['foto'].'" alt=""> ' ?> </td> 
+         <td >  <?php  echo $mostrar['docente'] ?>  </td>    
          <td ><a href="http://localhost/Oficial/modelo/EliminarC.php ?codigo=<?php echo $mostrar['codigo']?>"  onclick="return confirm('Estás seguro que deseas eliminar el Carrera?');"> <svg class="borrar" xmlns="http://www.w3.org/2000/svg" style="color:red;" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
   <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
 </svg> </a> </td>
-    </tr>
+</tr>
     <?php
  }
  ?>
@@ -234,6 +238,67 @@ $resultado = mysqli_query($conexion, $sql);
       </div>
     </div>
   </div>
+
+  <!--  ------------------------------ASIGNAR DOCENTES ------------------>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Asignación de Docentes a Carreras</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form  class="Doc" action="http://localhost/Oficial/modelo/AsignarD.php" method ="POST">
+        <div class="subida" style="display:flex; margin-top:11px;">
+                            <label  for="">Docente: </label> 
+                             <select style="margin-left: 10px; width:300px;" class="form-select"
+                             name="docente" id="docente">
+                             <option >  </option>
+                             <?php
+                              $conexion= mysqli_connect("localhost", "root", "", "its");
+                              $consulta ="SELECT * from profesores";
+                              $resultado_1 = mysqli_query($conexion, $consulta);
+
+                              while($mostrar_ =mysqli_fetch_array($resultado_1)){
+                                  ?> <option > <?php  echo $mostrar_['nombre'] ?> <span></span>
+                                  <?php  echo $mostrar_['apellido'] ?>  </option>
+                                  
+                                  <?php
+                              }
+                              ?>
+
+                                </select>
+                </div>
+                <div class="subida" style="display:flex; margin-top:11px;">
+                            <label  for="">Carrera: </label> 
+                             <select style="margin-left: 10px; width:300px;" class="form-select"
+                             name="carreraa" id="carreraa">
+                             <option >  </option>
+                             <?php
+                              $conexion= mysqli_connect("localhost", "root", "", "its");
+                              $consulta_2 ="SELECT * from carrera";
+                              $resultado_2 = mysqli_query($conexion, $consulta_2);
+
+                              while($mostrar_1 =mysqli_fetch_array($resultado_2)){
+                                  ?> <option > <?php  echo $mostrar_1['nombre'] ?> </option>
+                                  
+                                  <?php
+                              }
+                              ?>
+
+                                </select>
+                </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" id="btnEnviarD" class="btn btn-primary">Guardar Cambios</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
     </div>
     <!-- ------------------------------ -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
