@@ -41,7 +41,7 @@ $usuario = $_SESSION['username'];
         </div>
     </div>
 			<center><h3 style="">Formulario de Registro del estudiante</h3></center>
-     <div class="agregar" style="width:75%; height: 1350px; background-color: white;margin: 80px 0 10px 200px; border:2px solid  black ; border-radius: 5px;">
+     <div class="agregar" style="width:75%;  background-color: white;margin: 80px 0 10px 200px; border:2px solid  black ; border-radius: 5px;">
 	 <form class="row g-5 needs-validation"  action="http://localhost/Oficial/modelo/IngresarEst.php" method ="POST" enctype="multipart/form-data" novalidate style="margin: 8px 5px 5px 5px;">
 	 <h5>Información Personal</h5>
 	 <div class="col-md-4">
@@ -339,7 +339,7 @@ $usuario = $_SESSION['username'];
     <br>
   <div class="col-12" >
          <center>
-			<button style="background-color:red;" type="button" class="btn btn-secondary">Cancelar</button><span></span>
+			<input style="background-color:red;" type="reset" class="btn btn-secondary"></input><span></span>
           <button type="submit" id="btnEnviarD" class="btn btn-primary">Registrar</button>
 		 </center> 
   </div>

@@ -29,11 +29,8 @@ $usuario = $_SESSION['username'];
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <svg class="icon-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
-                           </svg>
                            <a class="navbar-brand op" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Cerrar Sesion</a>
-                        <a aria-current="page" href="#" style="text-decoration: none; color: rgb(24, 20, 86); border-bottom: 2px solid black;"> <?php  echo $usuario ?></a>
+                        <!-- <a aria-current="page" href="#" style="text-decoration: none; color: rgb(24, 20, 86); border-bottom: 2px solid black;"> <?php  echo $usuario ?></a> -->
                       </li>
                     </ul>
                   </div>
@@ -51,9 +48,10 @@ $usuario = $_SESSION['username'];
   <path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0V4z"/>
 </svg></span><h3 class="tituloP">Formatos</h3></div> 
         <ul style="list-style: none;">
-            <li class="tips" ><a class="tips2"  href="">Vinculación <img src="https://www.scout.es/wp-content/uploads/2016/11/download-icon-56591.png" width="26" height="26" alt="" style="margin-left:10px;"></a></li>
-            <li class="tips" ><a class="tips2"  href="">Docentes    <img src="https://www.scout.es/wp-content/uploads/2016/11/download-icon-56591.png" width="26" height="26" alt="" style="margin-left:33px;"></a></li>
+            <li class="tips" ><a class="tips2"  href="http://localhost/Oficial/public/archivos/vinculacion.rar">Vinculación <img src="https://www.scout.es/wp-content/uploads/2016/11/download-icon-56591.png" width="26" height="26" alt="" style="margin-left:10px;"></a></li>
+            <li class="tips" ><a class="tips2"  href="http://localhost/Oficial/public/archivos/Docentes.rar">Docentes    <img src="https://www.scout.es/wp-content/uploads/2016/11/download-icon-56591.png" width="26" height="26" alt="" style="margin-left:33px;"></a></li>
             <li class="tips" ><a class="tips2"  href="">Convenios   <img src="https://www.scout.es/wp-content/uploads/2016/11/download-icon-56591.png" width="26" height="26" alt="" style="margin-left:23px;"></a></li>
+            <li class="tips" ><a class="tips2"  href="http://localhost/Oficial/public/archivos/Certificados.rar">Otros   <img src="https://www.scout.es/wp-content/uploads/2016/11/download-icon-56591.png" width="26" height="26" alt="" style="margin-left:65px;"></a></li>
         </ul>  
        
     </div>

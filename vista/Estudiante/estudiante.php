@@ -31,7 +31,7 @@ if($filas){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ITS</title>
 </head>
 <body style="background-color: wheat">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -73,7 +73,7 @@ if($filas){
 <!-- CONSULTA DE DATOS PARA EL ESTUDIANTE-->
 
 
-    <div class="container_2">
+    <div class="container_2" style=" height: 100%; background-color: rgb(24, 20, 86);">
       <div class="line">
       </div>
       <div class="bloque_1">
@@ -85,6 +85,7 @@ $consulta_1= "SELECT * FROM estudiantes WHERE cedula= '$_cedula'";
 $resultado_1= mysqli_query($conexion_1, $consulta_1);
 $filas_1 = mysqli_fetch_array($resultado_1);
 if($filas_1){
+  $id_est = $filas_1['id'];
 ?>
         <h3 class="titulo_2">Nombres y Apellidos: <a  class="respuesta"><?php echo $filas_1['nombre'] ?> <span> <?php echo $filas_1['apellido'] ?></a></h3>
         <h3 class="titulo_2">Cédula: <a  class="respuesta"><?php echo $filas_1['cedula'] ?></a></h3>
@@ -119,10 +120,29 @@ if($filas_1){
         <div  class="agregar">
           <h6>Informe</h6>
 <div class="container-input">
+
+<?php 
+    $conexion= mysqli_connect("localhost", "root", "", "its");
+    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Informe'";
+    $resultado_1= mysqli_query($conexion, $informe);
+    $in = mysqli_fetch_array($resultado_1);
+    if($in){
+      ?>
+      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
+
+   <?php
+    } else{
+      ?>
+
 <button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
-
-  </div>
+ <p style="color:red;">Agregar Entrega</p>
+         <?php
+    }
+   ?>
+</div>
           
         </div>
 
@@ -130,8 +150,28 @@ if($filas_1){
         <div  class="agregar">
           <h6>Asistencia</h6>
           <div class="container-input">
+
+          <?php 
+    $conexion= mysqli_connect("localhost", "root", "", "its");
+    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Asistencia'";
+    $resultado_1= mysqli_query($conexion, $informe);
+    $in = mysqli_fetch_array($resultado_1);
+    if($in){
+      ?>
+      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
+
+   <?php
+    } else{
+      ?>
+
 <button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+ <p style="color:red;">Agregar Entrega</p>
+         <?php
+    }
+   ?>
 
   </div>
         </div>
@@ -142,8 +182,28 @@ if($filas_1){
           <h6>Inscripción</h6>
                    
           <div class="container-input">
+          <?php 
+    $conexion= mysqli_connect("localhost", "root", "", "its");
+    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Inscripción'";
+    $resultado_1= mysqli_query($conexion, $informe);
+    $in = mysqli_fetch_array($resultado_1);
+    if($in){
+      ?>
+      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
+
+   <?php
+    } else{
+      ?>
+
 <button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+ <p style="color:red;">Agregar Entrega</p>
+         <?php
+    }
+   ?>
+
 </div>
         </div>
 
@@ -152,12 +212,124 @@ if($filas_1){
  <div  class="agregar">
     <h6>Vinculación Estudiante</h6> 
     <div class="container-input">
+    <?php 
+    $conexion= mysqli_connect("localhost", "root", "", "its");
+    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Vinculación Estudiante'";
+    $resultado_1= mysqli_query($conexion, $informe);
+    $in = mysqli_fetch_array($resultado_1);
+    if($in){
+      ?>
+      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
+
+   <?php
+    } else{
+      ?>
+
 <button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+ <p style="color:red;">Agregar Entrega</p>
+         <?php
+    }
+   ?>
+
 
   </div></div>
+  <br>
+
+       
         
       </div>
+      <div class="bloque" style="display:flex; ">
+ <!--QUINTA TAREA-->
+ <div  class="agregar">
+    <h6>Cert. de Entidad Receptora</h6> 
+    <div class="container-input">
+    <?php 
+    $conexion= mysqli_connect("localhost", "root", "", "its");
+    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Certificado de entidad Receptora'";
+    $resultado_1= mysqli_query($conexion, $informe);
+    $in = mysqli_fetch_array($resultado_1);
+    if($in){
+      ?>
+      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
+
+   <?php
+    } else{
+      ?>
+
+<button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+ <p style="color:red;">Agregar Entrega</p>
+         <?php
+    }
+   ?>
+
+
+  </div></div>
+
+        <!--SEPTIMA TAREA-->
+  <div  class="agregar">
+    <h6>Certificado del Tutor</h6> <br>
+    <div class="container-input">
+    <?php 
+    $conexion= mysqli_connect("localhost", "root", "", "its");
+    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Certificado del Tutor'";
+    $resultado_1= mysqli_query($conexion, $informe);
+    $in = mysqli_fetch_array($resultado_1);
+    if($in){
+      ?>
+      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
+
+   <?php
+    } else{
+      ?>
+
+<button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+ <p style="color:red;">Agregar Entrega</p>
+         <?php
+    }
+   ?>
+
+
+  </div></div>
+
+  <!--SEXTA TAREA-->
+  <div  class="agregar">
+    <h6>Certificado de Coordinación</h6> 
+    <div class="container-input">
+    <?php 
+    $conexion= mysqli_connect("localhost", "root", "", "its");
+    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Certificado de Coordinación'";
+    $resultado_1= mysqli_query($conexion, $informe);
+    $in = mysqli_fetch_array($resultado_1);
+    if($in){
+      ?>
+      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
+
+   <?php
+    } else{
+      ?>
+
+<button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+ <p style="color:red;">Agregar Entrega</p>
+         <?php
+    }
+   ?>
+
+
+  </div></div>
+
+  </div>
     </div>
 
 <!-- MODAAAL  -->
@@ -183,13 +355,16 @@ if($filas_1){
                 </div>
                 </div>
                 <div class="subida" style="display:flex; margin-top:11px;">
-                            <label  for="">Tipo de Tarea: </label> 
+                            <label  for="">Tipo de Documento: </label> 
                              <select style="margin-left: 10px; width:300px;" class="form-select"
                              name="titulo" id="titulo">
                                 <option >Informe</option>
                                 <option >Asistencia</option>
                                 <option >Inscripción</option>
+                                <option >Certificado de entidad Receptora</option>
                                 <option >Vinculación Estudiante</option>
+                                <option >Certificado del Tutor</option>
+                                <option >Certificado de Coordinación</option>
                                 </select>
                 </div>
                 <div class="subida" style="display:flex; margin-top:11px;">
