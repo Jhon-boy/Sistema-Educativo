@@ -103,6 +103,7 @@ if($filas){
 
 //Imprimo los resultados en caso de exitir DATOS
 if($filas_1){
+  $cedula = $filas_1['cedula'];
   ?>
  <style>
       .des{
@@ -178,11 +179,11 @@ if($filas_1){
           $result = $conexion->query($totp);
           // recuperamos el resultado
           $total = $result->fetch_assoc()['total'];
-          if($total >=6){
+          if($total >=7){
             ?>
             <h3>Estado</h3>
 
-            <a type="button" class="btn btn-warning">Generar Certificado</a>
+            <a href="http://localhost/Oficial/public/Certificado_Vinculacion.doc" type="button" class="btn btn-warning">Generar Certificado</a>
             <br>
             <?php
           }else{

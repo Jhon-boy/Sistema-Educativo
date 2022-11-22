@@ -68,9 +68,6 @@ input{
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <svg class="icon-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
-                           </svg>
                         <a class="navbar-brand op" aria-current="page"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Cerrar Sesion</a>
                         <a aria-current="page" href="#" style="text-decoration: none; color: rgb(24, 20, 86); border-bottom: 2px solid black;"> <?php  echo $usuario ?></a>
                       </li>
@@ -86,13 +83,14 @@ input{
     </div>
     <div class="carrerasC">
     <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Carrera</button> 
+    <a href="http://localhost/Oficial/modelo/AdminDocentes.php" type="button" class="btn btn-info">Administrar Docentes</a>
     <button type="button" class="btn btn-info"data-bs-toggle="modal" data-bs-target="#exampleModal1">Asignar/Actualizar Docentes</button>
         <h3 class="carre">
             Información de las Carreras Registrada
         </h3>
     </div>
     <div class="container">
-    <table class="table table-hover table-bordered border border-dark ">
+    <table class="table table-light table-hover table-bordered border border-dark ">
   <thead>
     <tr>
     <center><th scope="col">ID</th></center> 

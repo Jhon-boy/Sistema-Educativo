@@ -40,6 +40,11 @@ $usuario = $_SESSION['username'];
               </nav>
         </div>
     </div>
+    <div class="operaciones" style="margin-left:50px;">
+      <a  type="button" class="btn btn-primary"href="http://localhost/Oficial/vista/Profesor/profesor.php" >Regresar</a>
+      <a  type="button" class="btn btn-success"href="http://localhost/Oficial/modelo//VerEstudiante.php" >Ver Estudiantes</a>
+
+      </div>
 			<center><h3 style="">Formulario de Registro del estudiante</h3></center>
      <div class="agregar" style="width:75%;  background-color: white;margin: 80px 0 10px 200px; border:2px solid  black ; border-radius: 5px;">
 	 <form class="row g-5 needs-validation"  action="http://localhost/Oficial/modelo/IngresarEst.php" method ="POST" enctype="multipart/form-data" novalidate style="margin: 8px 5px 5px 5px;">

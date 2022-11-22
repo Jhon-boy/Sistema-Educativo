@@ -29,7 +29,7 @@ if($tipo == 'Profesor'){
 </div>
         <?php
     }
-} else if($tipo == 'Alumno'){
+} else if($tipo == 'Estudiante'){
     $consulta= "SELECT * FROM estudiantes WHERE cedula = '$email' and cedula= '$contra'";
     $resultado= mysqli_query($conexion, $consulta);
     $filas = mysqli_fetch_array($resultado);

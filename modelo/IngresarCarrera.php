@@ -14,7 +14,7 @@ $modalidad= $_POST['modalidad'];
 
 if($_FILES["archivo"]){
     $nombre_base = basename($_FILES["archivo"]["name"]);//Obtengo el nombre del campo del archivo
-    $ruta_ = "fotos/";
+    $ruta_ = "fotos/";// MAMA AYUDAAAAAA
     $ruta = $ruta_. $nombre_base;
     if(!file_exists($ruta_)){
         mkdir($ruta_, 0777);

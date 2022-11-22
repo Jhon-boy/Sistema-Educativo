@@ -122,21 +122,23 @@ if($filas_1){
 <div class="container-input">
 
 <?php 
+
     $conexion= mysqli_connect("localhost", "root", "", "its");
-    $informe = "SELECT archivo FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Informe'";
+    $informe = "SELECT * FROM documentos WHERE id_estudiante= '$id_est' and titulo= 'Informe'";
     $resultado_1= mysqli_query($conexion, $informe);
     $in = mysqli_fetch_array($resultado_1);
     if($in){
       ?>
-      <button disabled style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-       <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
-      <center>  <p style="color:rgb(34, 205, 34);">Completado</p></center>
-
+      <button onlyread style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> </button>
+       <img   src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
+      <center>  <p style="color:rgb(34, 205, 34);">Completado</p>  </center>
+      <a style="margin-top: 15px; color:red;" href="http://localhost/Oficial/modelo/EliminarDoc.php? codigo=<?php echo $in['id_doc']?>"  onclick="return confirm('Estás seguro que deseas eliminar al Estudiante?');"> Borrar </a> 
+     
    <?php
     } else{
       ?>
 
-<button style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button  style="border:none;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
  <img  src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_960_720.png" height="100px" width="120px" alt="">
  <p style="color:red;">Agregar Entrega</p>
          <?php

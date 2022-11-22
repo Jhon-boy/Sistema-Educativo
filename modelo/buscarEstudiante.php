@@ -1,6 +1,8 @@
 <?php
+$conexion= mysqli_connect("localhost", "root", "", "its");
 session_start();
 $usuario = $_SESSION['username'];
+$ID= $_POST['ID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,24 +80,16 @@ input{
         </div>
     </div>
     <div class="operaciones" style="margin-left:50px;">
-      <a  type="button" class="btn btn-primary"href="http://localhost/Oficial/vista/Profesor/AgregarEst.php" >Agregar Estudiantes</a>
+      <a  type="button" class="btn btn-primary"href="http://localhost/Oficial/vista/Profesor/profesor.php" >Regresar</a>
       <a  type="button" class="btn btn-success"href="http://localhost/Oficial/modelo//VerEstudiante.php" >Ver Estudiantes</a>
 
       </div>
-    <center>
-      <div class="busqueda" style="width:500px;">
-<form action="http://localhost/Oficial/modelo/buscarEstudiante.php" method ="POST"  class="d-flex" role="search">
-        <input class="form-control me-2" type="search" name="ID" placeholder="Ingrese ID del Estudiante" aria-label="Search" required>
-        <button class="btn btn-outline-primary" type="submit">Buscar</button>
-      </form>
-</div>
-    </center>
 
 
     <div class="avisoA">
 
         <h3 class="carre">
-            Información de los estudiantes Registrados
+            Información del Estudiante
         </h3>
     </div>
     <div class="container">
@@ -113,7 +107,7 @@ input{
       <th scope="col"> <center>Contacto de Emergencia</center> </th>
      <th scope="col"> <center>Carrera</center> </th>
       <th scope="col"> - </th>
-      <th scope="col"> <center>Asignar</center> </th>
+      <th scope="col"> Asignar </th>
 
     </tr>
     </center>
@@ -121,13 +115,12 @@ input{
   <tbody>
   <?php
 $conexion= mysqli_connect("localhost", "root", "", "its");
-$sql ="SELECT * from estudiantes  ORDER BY `id` ASC";
-$resultado = mysqli_query($conexion, $sql);
-
+$consulta= "SELECT * FROM estudiantes WHERE id = '$ID'";
+$resultado = mysqli_query($conexion, $consulta);
+if($resultado){
  while($mostrar =mysqli_fetch_array($resultado)){
     
     $id_ =  $mostrar['id'];
-    $cedula =  $mostrar['cedula'];
      ?>
      <tr>
          <td scope="row"> <?php  echo $mostrar['id'] ?> </td>
@@ -147,39 +140,39 @@ $resultado = mysqli_query($conexion, $sql);
          }
          
          ?> </td>   
-         <td ><a href="http://localhost/Oficial/modelo/EliminarEst.php ?codigo=<?php echo $mostrar['id']?>"  onclick="return confirm('Estás seguro que deseas eliminar al Estudiante?');"> <svg class="borrar" xmlns="http://www.w3.org/2000/svg" style="color:red;" width="26" height="20" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+         <td ><a href="http://localhost/Oficial/modelo/EliminarEst.php ?ID=<?php echo $mostrar['id']?>"  onclick="return confirm('Estás seguro que deseas eliminar al Estudiante?');"> <svg class="borrar" xmlns="http://www.w3.org/2000/svg" style="color:red;" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
   <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-</svg> </a>  
-</td>
+</svg> </a> </td>
 
-
-<td > <center><?php 
-    $informe = "SELECT id FROM practicas WHERE cedula= '$cedula'";
-    $resultado_2= mysqli_query($conexion, $informe);
-    $inf = mysqli_fetch_array($resultado_2);
-    if($inf){
-      ?>
-   <center><h6 style="color: green;">Asignado</h6>
-   <a href="http://localhost/Oficial/modelo/InfoProyectos.php ?codigo=<?php echo $mostrar['cedula']?>"><svg xmlns="http://www.w3.org/2000/svg" style="color:green;"  width="26" height="26" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-</svg></a>  </center>
-
-   <?php
-   } else{
-    ?>
-     <center><a href="http://localhost/Oficial/modelo/AsignarEst.php ?codigo=<?php echo $mostrar['id']?>"> <svg xmlns="http://www.w3.org/2000/svg" style="color:green;"  width="26" height="26" fill="currentColor" class="bi bi-database-add" viewBox="0 0 16 16">
-  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Z"/>
-  <path d="M12.096 6.223A4.92 4.92 0 0 0 13 5.698V7c0 .289-.213.654-.753 1.007a4.493 4.493 0 0 1 1.753.25V4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.525 4.525 0 0 1-.813-.927C8.5 14.992 8.252 15 8 15c-1.464 0-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13h.027a4.552 4.552 0 0 1 0-1H8c-1.464 0-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10c.262 0 .52-.008.774-.024a4.525 4.525 0 0 1 1.102-1.132C9.298 8.944 8.666 9 8 9c-1.464 0-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777ZM3 4c0-.374.356-.875 1.318-1.313C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4Z"/>
-</svg> </a> </center>
-  <?php 
-  }
-  ?></center></td>
-
-
+<td > <center><a href="http://localhost/Oficial/modelo/AsignarEst.php ?codigo=<?php echo $mostrar['id']?>"> <svg xmlns="http://www.w3.org/2000/svg" style="color:green;"  width="26" height="20" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+</svg> </a> </center></td>
 </tr>
     <?php
+ }
+}else{
+    ?>
+    <thead>
+    <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Cedula</th>
+    <th scope="col"><center>Nombres</center> </th> 
+    <th scope="col"><center> Correo</center></th>  
+    <th scope="col">  <center>Edad</center></th>
+      <th scope="col">Genero</th>
+      <th scope="col">Dispacidad</th>
+      <th scope="col">Contacto</th>
+      <th scope="col"> <center>Contacto de Emergencia</center> </th>
+     <th scope="col"> <center>Carrera</center> </th>
+      <th scope="col"> - </th>
+
+    </tr>
+    </center>
+  </thead>
+  <center><h5>No se encontro ningun resultado, Vuelva a Intentarlo</h5></center>
+  <?php
  }
  ?>
     
