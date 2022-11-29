@@ -1,7 +1,7 @@
 <?php
 $usuario = $_SESSION['username'];
 $conexion= mysqli_connect("localhost", "root", "", "its");
-$codigo=$_REQUEST['codigo'];
+$codigo= $_POST['codigo'];
 $sql = "DELETE from documentos where id_doc= '$codigo'";
 mysqli_query($conexion,$sql);
 if($sql){
